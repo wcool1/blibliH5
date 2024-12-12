@@ -15,7 +15,7 @@ export default [
     imgSrc: 'http://i2.hdslb.com/bfs/archive/ef9c31e4a01a018305481f6b1b1cc6560aa4473b.jpg' ,
     desc: '【4K修复】梁博《日落大道》',
     playCount: '20万',
-    commentCount: '144128',
+    commentCount: '1128',
     videoSrc: 'https://player.bilibili.com/player.html?isOutside=true&aid=810747574&bvid=BV1R34y1v7sk&cid=576268455&p=1'
   },
   {
