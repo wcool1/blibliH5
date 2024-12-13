@@ -11,41 +11,46 @@
 
 <script lang="ts" setup>
 import axios from 'axios'
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import AppHeader from '@/components/app-header.vue'
 import VideoPlay from './components/video-play.vue'
 import VideoInfo from './components/video-info.vue'
 import VideoBottom from './components/video-bottom.vue'
-
-export interface IVideoInfo {
-  author?: string
-  authorIconSrc?: string
-  commentCount?: number
-  date?: string
-  id?: string
-  poster?: string
-  playCount?: string
-  likeCount?: string
-  favCount?: string
-  videoSrc?: string
-  videoTitle?: string
-}
-
+import { IVideoInfo } from './types'
 // 🔔 初始化空对象，空对象不需要指定键名称了
 const videoInfo = ref<IVideoInfo>({})
 // 获取路由对象
 const route = useRoute()
 
-axios({
-  url: '/videoDetail',
-  method: 'get',
-  // 根据路由对象的 id 参数发送请求获取对应的视频详情
-  params: { id: route.params.id }
-}).then(({ data }) => {
-  videoInfo.value = data.result
-  console.log('视频详情数据', data.result)
-})
+// 封装获取视频详情的函数
+const fetchData = () => {
+  axios({
+    url: '/videoDetail',
+    method: 'get',
+    params: { id: route.params.id }
+  }).then(({ data }) => {
+    videoInfo.value = data.result
+    console.log('视频详情数据', data.result)
+  })
+}
+// 添加页面刷新方法
+const refreshPage = () => {
+  window.location.reload()
+}
+// 初始化获取数据
+fetchData()
+
+// 监听路由参数 id 的变化
+watch(
+  () => route.params.id,
+  (newId) => {
+    if (newId) {
+      fetchData()
+      refreshPage()
+    }
+  }
+)
 </script>
 
 <style lang="less" scoped>

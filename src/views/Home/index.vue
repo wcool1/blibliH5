@@ -25,12 +25,10 @@ import HomeChannel from '@/views/Home/components/home-channel.vue'
   left: 0;
   width: 100%;
   z-index: 9999;
-  .channel{
-    margin-top:-2vw
-  }
+  
 }
 .main-content{
-  padding-top: 90px;
+  padding-top: 18vmin;
 
 }
 </style>

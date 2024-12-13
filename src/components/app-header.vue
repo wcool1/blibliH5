@@ -42,7 +42,7 @@ const goHome = () => {
   justify-content: space-between;
   align-items: center;
   padding: 0 3.2vmin 0 4.8vmin;
-  line-height: 11.73333vmin;
+  height:12vmin ;
   background-color: #fff;
 
   .logo {

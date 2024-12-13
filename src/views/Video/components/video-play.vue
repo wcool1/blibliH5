@@ -1,6 +1,7 @@
 <template>
   <div class="video-play">
        <iframe
+      :key="videoInfo.videoSrc"
       ref="playerIframe"
       allowfullscreen="allowfullscreen"
       style="width:100%; min-height:480px"
@@ -25,17 +26,6 @@ const props = defineProps({
   }
 })
 
-onMounted(() => {
-  window.addEventListener('message', (e) => {
-    if (e.data.type === 'player.ready') {
-      const iframe = document.querySelector('iframe')
-      // 静音播放
-      iframe?.contentWindow?.postMessage({ method: 'setVolume', value: 0 }, '*')
-      // 调整播放进度，例如跳转到第60秒
-      iframe?.contentWindow?.postMessage({ method: 'seek', value: 60 }, '*')
-    }
-  })
-})
 </script>
 
 <style lang="less" scoped>

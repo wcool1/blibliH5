@@ -76,14 +76,16 @@ axios({
 <style lang="less" scoped>
 .tabs {
   position: fixed;
-  top: 50px;
+  top: 12vmin;
+  height: 6vmin;
+  line-height:  6vmin;
   left: 0;
   width: 100%;
   z-index: 9999;
 
   .arrow-btn {
     position: absolute;
-    right: -2vw;
+    right: -1vmin;
     top: 50%;
     transform: translateY(-50%);
     width: 40px;
@@ -97,6 +99,9 @@ axios({
 
   :deep(.van-tab) {
     width: 20vw;
+    height: 100%;
+    line-height:  6vmin;
+
   }
 
   :deep(.van-tab--active) {

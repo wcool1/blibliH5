@@ -1,7 +1,7 @@
 <template>
-  <div class="comment" v-for="item in list" :key="item.id">
+  <div class="comment" v-for="item in list" :key="item.id" >
     <div class="comment-head">
-      <img class="avatar" :src="item.avatar" alt />
+      <img class="avatar" :src="item.avatar"  />
     </div>
     <div class="comment-body">
       <p class="username">{{ item.username }}</p>
