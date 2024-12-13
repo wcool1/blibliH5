@@ -23,6 +23,7 @@ Mock.setup({
 })
 
 // 轮播图
+//正则表达式会匹配所有包含 "/swiperList" 的 URL 请求，
 Mock.mock(/\/swiperList/, 'get', () => {
   return {
     code: 0,
